@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yajoor App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .phone-mockup {
+            width: 250px;
+            height: 500px;
+            background: url('mockup.png') no-repeat center center/cover;
+            margin: 20px auto;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .download-buttons {
+            margin-top: 20px;
+        }
+        .download-buttons a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            background: #007aff;
+            padding: 15px;
+            margin: 10px auto;
+            width: 80%;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        .download-buttons a.android {
+            background: #34a853;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Yajoor</h1>
+        <p>The best way to book & rent spaces</p>
+        <div class="phone-mockup"></div>
+        <div class="download-buttons">
+            <a href="#" class="ios">📱 Download on the App Store</a>
+            <a href="#" class="android">🤖 Get it on Google Play</a>
+        </div>
+    </div>
+</body>
+</html>
