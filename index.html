@@ -49,10 +49,18 @@
     }
 
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
       font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--primary);
+      font-size: 1.1rem;
       letter-spacing: 0.5px;
+      color: var(--primary);
+    }
+
+    .logo img {
+      height: 32px;
+      display: block;
     }
 
     .cta-btn {
@@ -107,7 +115,6 @@
     .store-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
       padding: 0.9rem 1.2rem;
       border-radius: 12px;
       font-weight: 600;
@@ -137,7 +144,6 @@
     .phone {
       position: relative;
       border-radius: 32px;
-      padding: 0;
       box-shadow: 0 40px 80px rgba(0,0,0,0.25);
     }
 
@@ -150,15 +156,10 @@
       z-index: -1;
     }
 
-    .screen {
-      background: linear-gradient(180deg, #fff, #f4f4f4);
+    .phone img {
+      width: 100%;
       border-radius: 24px;
-      height: 620px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      color: var(--gray);
+      display: block;
     }
 
     /* FOOTER */
@@ -168,6 +169,47 @@
       text-align: center;
       color: var(--gray);
       font-size: 0.9rem;
+    }
+
+    /* MODAL */
+    #modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    #modal .box {
+      background: white;
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      max-width: 360px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    #modal h2 {
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+
+    #modal p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    #modal button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
     }
 
     /* RESPONSIVE */
@@ -188,16 +230,17 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- NAV -->
   <header>
     <nav class="nav">
-      <div class="logo" style="display:flex;align-items:center;gap:0.6rem;">
-  <img src="images/logo.svg" alt="YAJOOR logo" style="height:32px;display:block;">
-  <span style="font-weight:700;font-size:1.1rem;letter-spacing:0.5px;">YAJOOR</span>
-</div>
-      <a href="#download" class="cta-btn">Download App</a>
+      <div class="logo">
+        <img src="yajoor.png" alt="YAJOOR logo">
+        <span>YAJOOR</span>
+      </div>
+      <a href="#" class="cta-btn">Download App</a>
     </nav>
   </header>
 
@@ -209,7 +252,7 @@
         YAJOOR helps you discover apartments, houses, and stores on a map — with verified listings and direct contact.
       </p>
 
-      <div id="download" class="store-buttons">
+      <div class="store-buttons">
         <a href="#" class="store-btn primary">Download for iOS</a>
         <a href="#" class="store-btn">Get it on Android</a>
       </div>
@@ -218,8 +261,7 @@
     <!-- MOCKUP -->
     <section class="mockup">
       <div class="phone">
-        <div class="screen">App Screenshot</div>
-      </div>
+        <img src="view.png" alt="YAJOOR App Screenshot">
       </div>
     </section>
   </main>
@@ -230,19 +272,19 @@
   </footer>
 
   <!-- COMING SOON MODAL -->
-  <div id="modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:100;">
-    <div style="background:white;padding:2rem 2.5rem;border-radius:16px;max-width:360px;width:90%;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.3);">
-      <h2 style="margin-bottom:0.75rem;color:#c25228;">Coming Soon</h2>
-      <p style="color:#6b7280;margin-bottom:1.5rem;">YAJOOR app is launching soon on iOS and Android.</p>
-      <button onclick="closeModal()" style="background:#c25228;color:white;border:none;padding:0.7rem 1.2rem;border-radius:10px;font-weight:600;cursor:pointer;">Got it</button>
+  <div id="modal">
+    <div class="box">
+      <h2>Coming Soon</h2>
+      <p>YAJOOR app is launching soon on iOS and Android.</p>
+      <button onclick="closeModal()">Got it</button>
     </div>
   </div>
 
   <script>
-    const ctaButtons = document.querySelectorAll('.cta-btn, .store-btn');
+    const buttons = document.querySelectorAll('.cta-btn, .store-btn');
     const modal = document.getElementById('modal');
 
-    ctaButtons.forEach(btn => {
+    buttons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         modal.style.display = 'flex';
